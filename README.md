@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Repository Manager](app-icon.svg)
+<img src="app-icon.svg" alt="Repository Manager" width="64" height="64">
 
 **A powerful Tauri-based desktop application for managing and analyzing Git repositories**
 
