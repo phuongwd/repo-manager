@@ -1,0 +1,87 @@
+{
+  "$schema": "https://schema.tauri.app/config/2.0",
+  "productName": "Repository Manager",
+  "version": "1.0.0",
+  "identifier": "com.phuong.repo-manager",
+  "build": {
+    "beforeBuildCommand": "npm run build",
+    "beforeDevCommand": "npm run dev",
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:1420"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "Repository Manager",
+        "width": 1200,
+        "height": 800,
+        "minWidth": 800,
+        "minHeight": 600,
+        "resizable": true,
+        "fullscreen": false
+      }
+    ],
+    "security": {
+      "csp": null,
+      "devCsp": null,
+      "capabilities": [
+        {
+          "identifier": "main-capability",
+          "description": "Capability for the main window",
+          "windows": ["main"],
+          "permissions": [
+            "core:default",
+            "dialog:allow-open",
+            "dialog:allow-message",
+            {
+              "identifier": "fs:allow-read-dir",
+              "allow": [
+                {
+                  "path": "$HOME/**"
+                }
+              ]
+            },
+            {
+              "identifier": "fs:allow-read-file", 
+              "allow": [
+                {
+                  "path": "$HOME/**"
+                }
+              ]
+            },
+            "shell:allow-execute",
+            "store:allow-get",
+            "store:allow-set",
+            "store:allow-has",
+            "store:allow-delete",
+            "store:allow-clear",
+            "store:allow-reset",
+            "store:allow-keys",
+            "store:allow-values",
+            "store:allow-entries",
+            "store:allow-length",
+            "store:allow-load",
+            "store:allow-save"
+          ]
+        }
+      ]
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "category": "DeveloperTool",
+    "copyright": "",
+    "shortDescription": "Git Repository Manager",
+    "longDescription": "Manage all your Git repositories in one place"
+  },
+  "plugins": {
+    "fs": {
+      "requireLiteralLeadingDot": false
+    },
+    "shell": {
+      "open": true
+    }
+  }
+}

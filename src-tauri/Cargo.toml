@@ -1,0 +1,36 @@
+[package]
+name = "repo-manager"
+version = "1.0.0"
+description = "Repository Manager - Manage all your Git repositories in one place"
+authors = ["Phuong the Cyborg <phuongthecyborg@gmail.com>"]
+license = ""
+repository = ""
+default-run = "repo-manager"
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2.0", features = [] }
+
+[dependencies]
+tauri = { version = "2.0", features = [] }
+tauri-plugin-fs = "2.0"
+tauri-plugin-shell = "2.0"
+tauri-plugin-dialog = "2.0"
+tauri-plugin-store = "2.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1.0", features = ["full"] }
+git2 = "0.18"
+chrono = { version = "0.4", features = ["serde"] }
+walkdir = "2.4"
+regex = "1.10"
+ignore = "0.4"
+tokei = "12.1" 
+humansize = "2.1"
+once_cell = "1.19"
+cached = "0.45"
+
+[features]
+# this feature is used for production builds or when `devPath` points to the filesystem
+# DO NOT REMOVE!!
+custom-protocol = ["tauri/custom-protocol"]
